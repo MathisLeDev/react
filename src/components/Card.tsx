@@ -2,9 +2,10 @@ import type { ILocation } from "../../data/locations.ts";
 
 type Props = {
 	location: ILocation;
+	onDeleteRental: (locationName: string) => void;
 };
 const Card = (props: Props) => {
-	const { location } = props;
+	const { location, onDeleteRental } = props;
 
 	return (
 		<div
@@ -23,6 +24,10 @@ const Card = (props: Props) => {
 				<p className={"text-xl font-semibold mt-auto"}>
 					${location.price} / night
 				</p>
+
+				<button onClick={() => onDeleteRental(location.name)} type={"button"}>
+					<span className={"text-gray-300"}>Supprimer</span>
+				</button>
 			</div>
 		</div>
 	);
