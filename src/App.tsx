@@ -1,32 +1,24 @@
 import { useState } from "react";
-import Food from "../data/Food.ts";
-import FoodDisplay from "./components/FoodDisplay.tsx";
-import FoodList from "./components/FoodList.tsx";
-
+import hiddenPng from "./assets/image (1).png";
+import notHidden from "./assets/image.png";
 const App = () => {
-	const [selectedFood, setSelectedFood] = useState<string>("--");
-
-	const handleFoodSelection = (food: string) => {
-		if (selectedFood === food) {
-			setSelectedFood("--");
-			return;
-		}
-		setSelectedFood(food);
-	};
+	const [hidden, setHidden] = useState<boolean>(false);
 
 	return (
 		<main className={"flex flex-col my-auto"}>
-			<FoodDisplay food={selectedFood} />
-			<div className={"grid grid-cols-1 xl:grid-cols-3 gap-8 mx-auto my-8"}>
-				{Food.map((food) => (
-					<FoodList
-						food={food}
-						key={food}
-						onClick={handleFoodSelection}
-						selectedFood={selectedFood}
-					/>
-				))}
-			</div>
+			<img
+				src={hidden ? notHidden : hiddenPng}
+				alt="Image"
+				className="w-96 h-96 mx-auto"
+			/>
+
+			<button
+				type={"button"}
+				className={"mx-auto mt-4"}
+				onClick={() => setHidden(!hidden)}
+			>
+				On me voit
+			</button>
 		</main>
 	);
 };
