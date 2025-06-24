@@ -1,7 +1,7 @@
 export default [
-	"Pizza",
-	"Sushi",
-	"Burgers",
-	"Salad",
-	"Pasta",
+	"Pizza 🍕",
+	"Sushi 🍣",
+	"Burgers 🍔",
+	"Salad 🥗",
+	"Pasta 🍝",
 ] satisfies string[];
