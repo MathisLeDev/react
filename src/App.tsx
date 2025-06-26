@@ -6,16 +6,22 @@ import Cadavre from "./components/flyJourney/Cadavre.tsx";
 import Maison from "./components/flyJourney/Maison.tsx";
 import Nourriture from "./components/flyJourney/Nourriture.tsx";
 import VersDeTerre from "./components/flyJourney/VersDeTerre.tsx";
+import Login from "./components/Login.tsx";
 
 const App = () => {
 	return (
 		<BrowserRouter>
-			<div className={"h-screen w-screen flex flex-col"}>
-				<nav className={"p-4"}>
-					<ul className={"flex flex-row gap-4"}>
+			<div className={"h-screen w-screen border flex flex-col"}>
+				<nav className={"p-4 overflow-auto"}>
+					<ul className={"flex flex-row gap-4 items-center"}>
 						<li>
 							<Link to={"/"}>
 								<button type={"button"}>Home</button>
+							</Link>
+						</li>
+						<li>
+							<Link to={"/login"}>
+								<button type={"button"}>Connexion</button>
 							</Link>
 						</li>
 						<li>
@@ -44,6 +50,7 @@ const App = () => {
 					<Route path="/fly-journey/maison" element={<Maison />} />
 					<Route path="/fly-journey/nourriture" element={<Nourriture />} />
 					<Route path="/fly-journey/versdeterre" element={<VersDeTerre />} />
+					<Route path="/login" element={<Login />} />
 				</Routes>
 			</div>
 		</BrowserRouter>
