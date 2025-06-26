@@ -1,5 +1,5 @@
 import React from "react";
-import useCounterStore from "../..//store.ts";
+import useCounterStore from "../../stores/store.ts";
 
 const CounterDisplay = () => {
 	const { count } = useCounterStore();
