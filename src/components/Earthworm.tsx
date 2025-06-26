@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const GRID_SIZE = 10;
-const MOVE_INTERVAL = 1000; // 10 seconds
+const MOVE_INTERVAL = 1000;
+const HUNGER_INTERVAL = 3000;
 
 interface Position {
 	row: number;
@@ -14,10 +15,21 @@ const Earthworm = () => {
 	const [alive, setAlive] = useState<boolean>(true);
 
 	useEffect(() => {
+		const hungerTimer = setInterval(() => {
+			setHunger((h) => {
+				const next = h + 1;
+				if (next >= 10) setAlive(false);
+				return Math.min(next, 10);
+			});
+		}, HUNGER_INTERVAL);
+
+		return () => clearInterval(hungerTimer);
+	}, []);
+
+	useEffect(() => {
 		if (!alive) return;
 
-		const id = setInterval(() => {
-			// Move the worm one cell in a random legal direction
+		const moveTimer = setInterval(() => {
 			setPosition((prev) => {
 				const directions = [
 					{ row: -1, col: 0 },
@@ -38,16 +50,9 @@ const Earthworm = () => {
 
 				return legalMoves[Math.floor(Math.random() * legalMoves.length)];
 			});
-
-			// Increment hunger and check for death
-			setHunger((h) => {
-				const next = h + 1;
-				if (next >= 10) setAlive(false);
-				return Math.min(next, 10);
-			});
 		}, MOVE_INTERVAL);
 
-		return () => clearInterval(id);
+		return () => clearInterval(moveTimer);
 	}, [alive]);
 
 	return (
