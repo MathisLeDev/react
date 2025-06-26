@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import cadavremp4 from "../../assets/Robot qui détecte une mouche sur un cadavre - conférence espace des sciences.mp4";
 import { Link } from "react-router-dom";
 
 const Maison = () => {
@@ -59,12 +58,6 @@ const Maison = () => {
 					</Link>
 				</div>
 			</div>
-			<video
-				src={cadavremp4}
-				className={"flex-1 absolute my-auto object-cover w-full"}
-				ref={videoRef}
-				controls={true}
-			/>
 		</div>
 	);
 };
