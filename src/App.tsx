@@ -1,8 +1,8 @@
-import Earthworm from "./components/Earthworm.tsx";
+import HelpDJTima from "./components/HelpDJTima.tsx";
 const App = () => {
 	return (
 		<main className={"flex flex-col my-auto"}>
-			<Earthworm />
+			<HelpDJTima />
 		</main>
 	);
 };
