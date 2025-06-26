@@ -13,9 +13,25 @@ const Login = () => {
 				alert("Please fill in both fields.");
 				return;
 			}
-			const token = "123465";
-			setToken(token);
-			navigate("/", { replace: true });
+			const res = await fetch("https://reqres.in/api/login", {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+					"x-api-key": "reqres-free-v1",
+				},
+				body: JSON.stringify({
+					email: "eve.holt@reqres.in",
+					password: "cityslicka",
+				}),
+			});
+
+			if (res.ok) {
+				console.log(res);
+				const data = res.json();
+				const token = (await data).token;
+				setToken(token);
+				navigate("/", { replace: true });
+			}
 		} catch (error) {
 			console.error("Login failed:", error);
 			alert("Login failed. Please try again.");

@@ -7,6 +7,7 @@ import Maison from "./components/flyJourney/Maison.tsx";
 import Nourriture from "./components/flyJourney/Nourriture.tsx";
 import VersDeTerre from "./components/flyJourney/VersDeTerre.tsx";
 import Login from "./components/Login.tsx";
+import Secret from "./components/Secret.tsx";
 
 const App = () => {
 	return (
@@ -39,6 +40,11 @@ const App = () => {
 								<button type={"button"}>Parcours des mouches</button>
 							</Link>
 						</li>
+						<li>
+							<Link to={"/secret"}>
+								<button type={"button"}>Secret de Zeno</button>
+							</Link>
+						</li>
 					</ul>
 				</nav>
 
@@ -51,6 +57,7 @@ const App = () => {
 					<Route path="/fly-journey/nourriture" element={<Nourriture />} />
 					<Route path="/fly-journey/versdeterre" element={<VersDeTerre />} />
 					<Route path="/login" element={<Login />} />
+					<Route path="/secret" element={<Secret />} />
 				</Routes>
 			</div>
 		</BrowserRouter>

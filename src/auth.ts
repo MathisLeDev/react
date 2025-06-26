@@ -1,7 +1,8 @@
-let token: string = "";
+let token: string = localStorage.getItem("token") || "";
 
 export const setToken = (newToken: string) => {
 	token = newToken;
+	localStorage.setItem("token", token);
 };
 
 export const getToken = () => {
@@ -14,4 +15,5 @@ export const isAuthenticated = () => {
 
 export const removeToken = () => {
 	token = "";
+	localStorage.removeItem("token");
 };
