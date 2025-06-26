@@ -28,18 +28,18 @@ const HelpDjTima = () => {
 
 	return (
 		<div className={"mx-auto"}>
-			<h1>DJ Tima's Top Tracks</h1>
+			<h1 className={"text-center"}>DJ Tima's Top Tracks</h1>
 			{loading ? (
 				<p>Loading tracks...</p>
 			) : error ? (
 				<p>Error: {error}</p>
 			) : (
-				<ul>
+				<ul className={"flex flex-col items-center mx-4"}>
 					{tracks.map((track) => (
 						<li key={track.id} className={"my-2"}>
 							<strong>{track.title}</strong> by {track.artist.name}
 							<br />
-							<audio controls>
+							<audio controls className={"mx-auto"}>
 								<source src={track.preview} type="audio/mpeg" />
 								Your browser does not support the audio element.
 							</audio>
